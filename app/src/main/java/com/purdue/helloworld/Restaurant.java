@@ -3,7 +3,9 @@ package com.purdue.helloworld;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 
-public class Restaurant {
+import java.io.Serializable;
+
+public class Restaurant implements Serializable {
     String name;
     String description;
     String location;
@@ -17,10 +19,12 @@ public class Restaurant {
     boolean takesMealSwipes;
     //if the times of the location are only meal swipe times
     boolean takesOnlyMS;
-    String titleImageID;
+    int titleImageID;
 
+    public Restaurant() {
+    }
 
-    public Restaurant(String name, String description, String location,String time,String titleImageID, boolean takesMS, boolean onlyMS
+    public Restaurant(String name, String description, String location, String time, int titleImageID, boolean takesMS, boolean onlyMS
     ) {
         this.name = name;
         this.description = description;
@@ -56,7 +60,7 @@ public class Restaurant {
     public String getDescription() {
         return description;
     }
-    public String getDrawableID(){
+    public int getDrawableID(){
         return titleImageID;
     }
 }
