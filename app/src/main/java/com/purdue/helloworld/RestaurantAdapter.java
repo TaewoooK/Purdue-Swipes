@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +39,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
 
         final Restaurant data = places.get(position);
        holder.picture.setImageResource(data.getDrawableID());
-
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
         //System.out.println(data.getDate_class2());

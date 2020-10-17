@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    app:cardCornerRadius="7dp"
+    app:cardCornerRadius="25dp"
     app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
+
 
         <ImageView
             android:id="@+id/picture"
@@ -80,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
-                    android:text="Open for Meal swipes" />
+                    android:text="Accepts Meal swipes" />
             </LinearLayout>
 
 
