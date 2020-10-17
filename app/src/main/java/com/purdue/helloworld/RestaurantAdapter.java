@@ -3,6 +3,7 @@ package com.purdue.helloworld;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +37,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     public void onBindViewHolder(RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
-        String temp = "R.drawable."+data.getDrawableID();
-        holder.picture.setImageResource(Integer.parseInt(temp));
+       holder.picture.setImageResource(data.getDrawableID());
+
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
         //System.out.println(data.getDate_class2());

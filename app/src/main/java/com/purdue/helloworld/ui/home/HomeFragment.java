@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -25,6 +27,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.purdue.helloworld.MealSwipeTime;
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
+import com.purdue.helloworld.RestaurantAdapter;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;
@@ -32,14 +35,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeFragment extends Fragment {
-
+    RecyclerView recyclerView;
     String retrievedValue;
 ArrayList<Restaurant> restaurants = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-       // RecyclerView recyclerView = getView().findViewById(R.id.recyclerView);
+         recyclerView = root.findViewById(R.id.rvHome);
         //name,description,location,time,drawablepath,takeMealSwipes,OnlyMealSwipes
       /*  Restaurant aadr = new Restaurant("All American Dining Room", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true);
         Restaurant peteza = new Restaurant("Pete's Za", "Pete's Za at Meredith is a grab and go meal swipe option that serves a veriety of hot and ready pizza", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.peteza_time), "petesza", true,true);
@@ -72,18 +75,26 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
         Restaurant amd = new Restaurant();
         Restaurant amd = new Restaurant();
 */
+        final RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
       FirebaseFirestore.getInstance().collection("Restaurants").addSnapshotListener(new EventListener<QuerySnapshot>() {
           @Override
           public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
               restaurants.clear();
               for (DocumentSnapshot documentSnapshot: queryDocumentSnapshots) {
                   if (documentSnapshot != null) {
-                      restaurants.add(documentSnapshot.toObject(Restaurant.class));
+                      Restaurant restaurant = documentSnapshot.toObject(Restaurant.class);
+                      restaurants.add(restaurant);
                   }
 
               }
+              restaurantAdapter.notifyDataSetChanged();
           }
+
       });
+        RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutmanager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(restaurantAdapter);
 
 
        // final TextView textView = root.findViewById(R.id.text_home);
