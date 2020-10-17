@@ -12,19 +12,19 @@ public class Restaurant implements Serializable {
     // the long String of all the times that the place is open
     String time;
     //returns the next time when the establishment is open
-   // int[] nextTime;
+    // int[] nextTime;
     //returns day index of the next Time open value
-  //  String nextDay;
+    //  String nextDay;
     //if the location takes meal swipes at all
     boolean takesMealSwipes;
     //if the times of the location are only meal swipe times
     boolean takesOnlyMS;
-    int titleImageID;
+    String titleImageID;
 
     public Restaurant() {
     }
 
-    public Restaurant(String name, String description, String location, String time, int titleImageID, boolean takesMS, boolean onlyMS
+    public Restaurant(String name, String description, String location, String time, String titleImageID, boolean takesMS, boolean onlyMS
     ) {
         this.name = name;
         this.description = description;
@@ -35,6 +35,30 @@ public class Restaurant implements Serializable {
         this.takesOnlyMS = onlyMS;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getTime() {
         return time;
     }
@@ -43,24 +67,28 @@ public class Restaurant implements Serializable {
         this.time = time;
     }
 
-    public String getName() {
-        return name;
-    }
-    public String getLocationURL(){
-
-        return location;
-    }
-    public String getMealSwipeTime(){
-
-        return time;
-    }
-    public boolean takesMS(){
+    public boolean isTakesMealSwipes() {
         return takesMealSwipes;
     }
-    public String getDescription() {
-        return description;
+
+    public void setTakesMealSwipes(boolean takesMealSwipes) {
+        this.takesMealSwipes = takesMealSwipes;
     }
-    public int getDrawableID(){
+
+    public boolean isTakesOnlyMS() {
+        return takesOnlyMS;
+    }
+
+    public void setTakesOnlyMS(boolean takesOnlyMS) {
+        this.takesOnlyMS = takesOnlyMS;
+    }
+
+    public String getTitleImageID() {
         return titleImageID;
     }
+
+    public void setTitleImageID(String titleImageID) {
+        this.titleImageID = titleImageID;
+    }
 }
+

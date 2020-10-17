@@ -37,8 +37,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     public void onBindViewHolder(RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
-       holder.picture.setImageResource(data.getDrawableID());
+       // holder.picture.invalidate();
+       //holder.picture.setImageResource(data.getDrawableID());
+        System.out.println(data.getTitleImageID());
+holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()));
 
+       // holder.picture.getResources().getDrawable(data.getDrawableID());
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
         //System.out.println(data.getDate_class2());
