@@ -1,7 +1,5 @@
 package com.purdue.helloworld;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -28,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new DashboardFragment();
     final Fragment fragment3 = new NotificationsFragment();
-    //  final Fragment fragment4 = new Admin_fragment();
-    //  final Fragment fragment5 = new HR_fragment();
+
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,16 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     active = fragment3;
                     fm.popBackStack();
                     return true;
-              /*  case R.id.admin:
-                    fm.beginTransaction().hide(active).show(fragment4).commit();
-                    active = fragment4;
-                    fm.popBackStack();
-                    return true;
-                case R.id.Homeroom:
-                    fm.beginTransaction().hide(active).show(fragment5).commit();
-                    active = fragment5;
-                    fm.popBackStack();
-                    return true;*/
+
             }
             return false;
         }
@@ -91,96 +79,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-  /*  @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        signout2 = (Button) findViewById(R.id.sign_out);
-
-        signout2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(com.samuelford48gmail.thsconnect.teacher.MainActivity.this, LoginActivity.class));
-                finish();
-            }
-        });
-
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-    }
-
-    FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-        @SuppressLint("SetTextI18n")
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user == null) {
-                // user auth state is changed - user is null
-                // launch login activity
-                startActivity(new Intent(com.samuelford48gmail.thsconnect.teacher.MainActivity.this, LoginActivity.class));
-                finish();
-            }
-        }
-
-
-    };
-    // public void signout (View v){
-    //    signOut();
-    //}
-/*
-    public void signOut() {
-        auth.signOut();
-
-
-// this listener will be called when there is change in firebase user session
-       FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // user auth state is changed - user is null
-                    // launch login activity
-                    startActivity(new Intent(com.samuelford48gmail.thsconnect.teacher.MainActivity.this, LoginActivity.class));
-                    finish();
-                }
-            }
-        };
-
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(authListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (authListener != null) {
-            auth.removeAuthStateListener(authListener);
-        }
-    */
-  /*@Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-      getMenuInflater().inflate(R.menu., menu);
-      return super.onCreateOptionsMenu(menu);
-  }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            startActivity(new Intent(com.samuelford48gmail.thsconnect.teacher.MainActivity.this, SettingsActivity.class));
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
 }
