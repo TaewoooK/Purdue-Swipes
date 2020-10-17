@@ -14,6 +14,7 @@ public class Utility {
         mapIntent.setPackage("com.google.android.apps.maps");
         context.startActivity(mapIntent);
     }
+
     public static void parseString(String retrievedValue) {
         ArrayList<MealSwipeTime> times = new ArrayList<>();
         //String[] days = {"Monday","Tuesday","Wednesday","Thursday", "Friday", "Saturday", "Sunday"};
@@ -25,6 +26,7 @@ public class Utility {
         days.add("Friday");
         days.add("Saturday");
         days.add("Sunday");
+
         String[] split = retrievedValue.split(",");
         String breakfast = "";
         String breakfasthours = "";
