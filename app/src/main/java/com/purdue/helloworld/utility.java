@@ -14,7 +14,6 @@ public class Utility {
         mapIntent.setPackage("com.google.android.apps.maps");
         context.startActivity(mapIntent);
     }
-
     public static void parseString(String retrievedValue) {
         ArrayList<MealSwipeTime> times = new ArrayList<>();
         //String[] days = {"Monday","Tuesday","Wednesday","Thursday", "Friday", "Saturday", "Sunday"};

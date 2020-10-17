@@ -65,7 +65,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
             description = (TextView) itemView.findViewById(R.id.description);
             nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
 
-
         }
     }
 
