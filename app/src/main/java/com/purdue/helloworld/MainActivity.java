@@ -1,5 +1,7 @@
 package com.purdue.helloworld;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_container, fragment1, "1").commit();
 
     }
+
 
   /*  @Override
     protected void onCreate(Bundle savedInstanceState) {

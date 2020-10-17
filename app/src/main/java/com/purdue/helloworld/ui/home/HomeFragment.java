@@ -18,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.purdue.helloworld.R;
+import com.purdue.helloworld.utility;
 
 import java.util.HashMap;
 import java.util.Map;
