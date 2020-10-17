@@ -18,14 +18,13 @@ import com.purdue.helloworld.R;
 
 public class DashboardFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
     private WebView webView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        webView = (WebView) getView().findViewById(R.id.webviewWidget);
+        webView = root.findViewById(R.id.webViewID);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://eacct-purdue-sp.transactcampus.com/purdueeaccounts/AccountSummary.aspx?menu=0");
 
