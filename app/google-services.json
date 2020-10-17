@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "736954013389",
+    "firebase_url": "https://helloworld-d38e1.firebaseio.com",
+    "project_id": "helloworld-d38e1",
+    "storage_bucket": "helloworld-d38e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736954013389:android:092e47af54449046c0bb84",
+        "android_client_info": {
+          "package_name": "com.purdue.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736954013389-68le12cia8s8a8n38cukeh7muaffehjm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcPcHoOwE5T8BSOAcxm_N2mMSVWvd9HIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736954013389-68le12cia8s8a8n38cukeh7muaffehjm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
