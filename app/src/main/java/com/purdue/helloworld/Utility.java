@@ -15,7 +15,7 @@ public class Utility {
         context.startActivity(mapIntent);
     }
 
-    public static void parseString(String retrievedValue) {
+    public static ArrayList<MealSwipeTime> parseString(String retrievedValue) {
         ArrayList<MealSwipeTime> times = new ArrayList<>();
         //String[] days = {"Monday","Tuesday","Wednesday","Thursday", "Friday", "Saturday", "Sunday"};
         ArrayList<String> days = new ArrayList<>();
@@ -132,7 +132,24 @@ public class Utility {
 
             }
         }
-        System.out.println(times.size());
 
+        return times;
+    }
+    public static int getDrawableName(String drawable) {
+        int draw = 0;
+        switch (drawable) {
+            case "allamerican": draw=R.drawable.allamerican;
+                break;
+            case "petesza": draw=R.drawable.petesza;
+                break;
+            case "onebowl": draw=R.drawable.onebowl;
+                break;
+            case "caryknightspot": draw=R.drawable.caryknightspot;
+                break;
+
+
+
+        }
+        return draw;
     }
 }
