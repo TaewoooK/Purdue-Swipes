@@ -23,6 +23,7 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         webView = root.findViewById(R.id.webViewID);
@@ -31,6 +32,7 @@ public class DashboardFragment extends Fragment {
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
 
         return root;
     }
