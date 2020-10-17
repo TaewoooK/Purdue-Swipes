@@ -59,7 +59,7 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
 */
 
 
-      /*  Restaurant amd = new Restaurant();
+      /*  Restaurant panera = new Restaurant("Panera Bread", "The company operates as Saint Louis Bread Company in the Greater St. Louis area, where it has over 100 locations. Offerings include bakery items, pasta, salads, sandwiches, soups, and specialty drinks.", "https://www.google.com/maps/place/Panera+Bread/@40.4228822,-86.9263825,15z/data=!4m8!1m2!2m1!1spanera!3m4!1s0x8812e37e1fd73ac5:0xc9d3acfdc4c66eb0!8m2!3d40.425488!4d-86.92268", getString(R.string.aadr_time), "panera", true, false);
         Restaurant amd = new Restaurant();
         Restaurant amd = new Restaurant();
         Restaurant amd = new Restaurant();
