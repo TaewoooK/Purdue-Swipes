@@ -182,7 +182,7 @@ public class Utility {
                 break;
             case "windsor": draw=R.drawable.windsor;
                 break;
-            case "windsorotg": draw=R.drawable.windsorotg;
+            case "windsorotg": draw=R.drawable.otg;
                 break;
         }
         return draw;
