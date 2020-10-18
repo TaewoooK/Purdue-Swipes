@@ -43,4 +43,6 @@ public class MealSwipeTime {
     public void setDinnerHours(String dinnerHours) {
         this.dinnerHours = dinnerHours;
     }
+
+
 }

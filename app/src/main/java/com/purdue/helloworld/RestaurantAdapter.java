@@ -81,15 +81,17 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         String lunch = utility.parseString(data.getTime()).get(dayInt).getLunchHours();
         String dinner = utility.parseString(data.getTime()).get(dayInt).getDinnerHours();
         holder.takesOrNo.setBackgroundColor(R.color.notgreen);
+       // holder.nextTimeOpen.setText();
 
         if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
             holder.takesMealSwipes.setText("Open for Meal Swipes");
-
             holder.takesOrNo.setBackgroundColor(Color.GREEN);
+         //   holder.nextTimeOpen.setText("Open Today: " + mealSwipe.timeOpenNow(breakfast,lunch,dinner));
 
         } else {
             holder.takesMealSwipes.setText("Closed for Meal Swipes");
             holder.takesOrNo.setBackgroundColor(Color.RED);
+            holder.nextTimeOpen .setText("Closed");
         }
         //System.out.println(data.getDate_class2());
         final Context context = holder.itemView.getContext();
@@ -137,7 +139,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
             picture = (ImageView) itemView.findViewById(R.id.picture);
             name = (TextView) itemView.findViewById(R.id.name);
             description = (TextView) itemView.findViewById(R.id.description);
-            nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
+         //   nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
 
             takesMealSwipes = (TextView) itemView.findViewById(R.id.takesMealSwipes);
             takesOrNo =  itemView.findViewById(R.id.takesMealSwipes);
