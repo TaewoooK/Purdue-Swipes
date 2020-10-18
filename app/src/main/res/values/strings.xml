@@ -60,4 +60,5 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="hours">Hours</string>
     <string name="menu">Menu</string>
+    <string name="nomealswipes">No\nswipes</string>
 </resources>

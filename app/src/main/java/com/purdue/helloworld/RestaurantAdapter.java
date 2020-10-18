@@ -103,7 +103,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
 
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
                 editor.putString("time", data.getTime()).apply();
-
+                editor.putString("menu", data.getMenu()).apply();
 
                // Bundle bundle = new Bundle();
                // bundle.putString("time", data.getTime());
