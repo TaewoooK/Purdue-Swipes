@@ -1,5 +1,6 @@
 package com.purdue.helloworld;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -59,6 +60,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         return formatter.format(date);
     }
 
+    @SuppressLint("ResourceAsColor")
     public void onBindViewHolder(final RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
