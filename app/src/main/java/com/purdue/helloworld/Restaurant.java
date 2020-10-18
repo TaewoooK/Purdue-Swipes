@@ -2,15 +2,25 @@ package com.purdue.helloworld;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public class Restaurant implements Serializable {
+public class Restaurant  {
     String name;
     String description;
     String location;
     // the long String of all the times that the place is open
     String time;
+
+    public String getMenu() {
+        return menu;
+    }
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+
+    String menu;
     //returns the next time when the establishment is open
     // int[] nextTime;
     //returns day index of the next Time open value
@@ -24,7 +34,7 @@ public class Restaurant implements Serializable {
     public Restaurant() {
     }
 
-    public Restaurant(String name, String description, String location, String time, String titleImageID, boolean takesMS, boolean onlyMS
+    public Restaurant(String name, String description, String location, String time, String titleImageID, boolean takesMS, boolean onlyMS, String menu
     ) {
         this.name = name;
         this.description = description;
@@ -33,7 +43,9 @@ public class Restaurant implements Serializable {
         this.titleImageID = titleImageID;
         this.takesMealSwipes = takesMS;
         this.takesOnlyMS = onlyMS;
+        this.menu = menu;
     }
+
 
     public String getName() {
         return name;

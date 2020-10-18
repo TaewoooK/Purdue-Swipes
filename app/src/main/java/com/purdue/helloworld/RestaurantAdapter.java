@@ -46,10 +46,15 @@ holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()))
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
         //System.out.println(data.getDate_class2());
+        final Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           // Intent intent = new Intent(holder.itemView.getContext(),);
+            Intent intent = new Intent(holder.itemView.getContext(),RestaurantInfo.class);
+            intent.putExtra("menu",data.getMenu());
+            intent.putExtra("time",data.getTime());
+            context.startActivity(intent);
+
             }
         });
         holder.map.setOnClickListener(new View.OnClickListener() {
