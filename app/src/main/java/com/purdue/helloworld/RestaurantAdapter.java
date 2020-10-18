@@ -80,10 +80,13 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         String breakfast = utility.parseString(data.getTime()).get(dayInt).getBreakfastHours();
         String lunch = utility.parseString(data.getTime()).get(dayInt).getLunchHours();
         String dinner = utility.parseString(data.getTime()).get(dayInt).getDinnerHours();
+        holder.takesOrNo.setBackgroundColor(R.color.notgreen);
 
         if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
             holder.takesMealSwipes.setText("Open for Meal Swipes");
+
             holder.takesOrNo.setBackgroundColor(Color.GREEN);
+
         } else {
             holder.takesMealSwipes.setText("Closed for Meal Swipes");
             holder.takesOrNo.setBackgroundColor(Color.RED);
