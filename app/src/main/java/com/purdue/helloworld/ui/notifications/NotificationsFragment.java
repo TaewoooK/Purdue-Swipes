@@ -25,13 +25,14 @@ public class NotificationsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
+/*
         webView = root.findViewById(R.id.webViewID);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://www.purdueexponent.org/features/article_a54b66d7-8d9d-5972-ba99-7ddbeef53d22.html");
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+*/
         return root;
     }
 }
