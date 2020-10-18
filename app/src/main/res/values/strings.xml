@@ -54,4 +54,5 @@
     <string name="freshens_menu">All menu options available for swipes. Link to current menu: https://freshens.com/menu/</string>
     <string name="harrisongrill_menu">Angus Cheeseburger\nGardenburger\nHomestyle Chicken Sandwich\nBuffalo Crispy Chicken Sandwich\nChicken Wings\nVeggie Quesadilla\nAll meals come with a choice of one of the following sides:\nFries\nFresh Fruit</string>
     <string name="caryknightspot_menu">Angus Cheeseburger\nGardenburger\nHomestyle Chicken Sandwich\nBuffalo Crispy Chicken Sandwich\nChicken Tenders\nChicken Quesadilla\nVeggie Quesadilla\nAll meals come with a choice of one of the following sides:\nFries\nMac and Cheese\nFresh Fruit</string>
+    <string name="meal_swipes">Meal Swipes</string>
 </resources>
