@@ -23,7 +23,7 @@ public class Restaurant  {
     //if the times of the location are only meal swipe times
     boolean takesOnlyMS;
     String titleImageID;
-    // String menu;
+
 
     public Restaurant() {
     }
