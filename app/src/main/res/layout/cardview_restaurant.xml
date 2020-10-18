@@ -53,7 +53,7 @@
                     android:textColor="#000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
+                <!--
               <TextView
                     android:id="@+id/nextTimeOpen"
                     android:layout_width="189dp"
@@ -61,7 +61,7 @@
                     android:layout_marginLeft="80dp"
                     android:layout_weight="1"
                     android:text="Open Today, 11AM-2PM"
-                    android:textAlignment="textEnd" />
+                    android:textAlignment="textEnd" />-->
             </LinearLayout>
 
 
@@ -86,7 +86,8 @@
                     android:background="#ffffff"
                     android:layout_marginVertical="5dp"
                     app:srcCompat="@drawable/googlemaps"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    />
 
             </LinearLayout>
 

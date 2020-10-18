@@ -102,8 +102,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
                 SharedPreferences mySharedPreferences = context.getSharedPreferences("time", Context.MODE_PRIVATE);
 
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
+                      //  System.out.println(data.getMenu());
                 editor.putString("time", data.getTime()).apply();
+                SharedPreferences mySharedPreferences2 = context.getSharedPreferences("menu", Context.MODE_PRIVATE);
 
+                SharedPreferences.Editor editor2 = mySharedPreferences2.edit();
+                editor2.putString("menu", data.getMenu()).apply();
 
                // Bundle bundle = new Bundle();
                // bundle.putString("time", data.getTime());

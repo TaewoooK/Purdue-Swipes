@@ -1,5 +1,7 @@
 package com.purdue.helloworld.ui.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +21,13 @@ public class MenuFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_menu, container, false);
+        View root = inflater.inflate(R.layout.cardview_menu, container, false);
+        SharedPreferences mySharedPreferences = getContext().getSharedPreferences("menu", Context.MODE_PRIVATE);
+        String menu = mySharedPreferences.getString("menu", "");
+        TextView t = root.findViewById(R.id.menu);
+        t.setText(menu);
+        System.out.println("menu" + menu);
+        t.setVisibility(View.VISIBLE);
         return root;
     }
 }
