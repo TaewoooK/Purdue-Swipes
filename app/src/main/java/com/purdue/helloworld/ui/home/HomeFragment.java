@@ -57,8 +57,8 @@ ArrayList<Restaurant> restaurantsMS = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("EEE");
         final String dateTime = format.format(cal.getTime());
         //name,description,location,time,drawablepath,takeMealSwipes,OnlyMealSwipes
-
-        Restaurant aadr = new Restaurant("All American Dining Room", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true, getString(R.string.aadr_menu));
+/*
+        Restaurant aadr = new Restaurant("All American", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true, getString(R.string.aadr_menu));
         Restaurant peteza = new Restaurant("Pete's Za", "Pete's Za at Meredith is a grab and go meal swipe option that serves a veriety of hot and ready pizza", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.peteza_time), "petesza", true,true, getString(R.string.peteza_menu));
         Restaurant onebowl = new Restaurant("1Bowl", "1bowl @ Meredith is a grab-and-go swipe meal plan option, available only for meal plan holders, located in 1North of the Gathering Place at Meredith Hall, featuring a rotating menu of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.onebowl_time),"onebowl", true, true, getString(R.string.onebowl_menu));
         Restaurant caryKnightSpot = new Restaurant("Cary Knight Spot", "Open late to satisfy all your pub grub cravings- stop by for burgers, fries, quesadillas, tenders, and more. Located in the basement of Cary Quad South.","https://www.google.com/maps/place/Cary+Knight+Spot+Grill/@40.4317733,-86.9193086,17z/data=!3m1!4b1!4m5!3m4!1s0x8812fd4ca6441cb5:0x3be521b18709d11!8m2!3d40.4317692!4d-86.9171199",getString(R.string.caryknightspot_time),"caryknightspot",true,false, getString(R.string.caryknightspot_menu));
@@ -88,8 +88,26 @@ ArrayList<Restaurant> restaurantsMS = new ArrayList<>();
         Restaurant otglily = new Restaurant("Lilly On The Go", "On-the-GO! provides a variety of meal boxes, chef inspired meals, freshly prepared items, sushi and snacks. On-the-GO! offers convenience for students who don't have time to stop and sit down for a meal. The service is quick, and the choices are many.", "https://www.google.com/maps/place/Lilly+Hall+of+Life+Sciences/@40.4278441,-86.9286501,14z/data=!4m8!1m2!2m1!1slilly!3m4!1s0x8812e2b6d74e6bf7:0x7e43647c2e6d6cc!8m2!3d40.423476!4d-86.9180072", getString(R.string.otglilly_time), "lilyotg", true, true, getString(R.string.otglilly_menu));
         Restaurant otgwindsor = new Restaurant("Windsor On The Go", "On-the-GO! provides a variety of meal boxes, chef inspired meals, freshly prepared items, sushi and snacks. On-the-GO! offers convenience for students who don't have time to stop and sit down for a meal. The service is quick, and the choices are many.", "https://www.google.com/maps/place/Windsor+Dining+Court/@40.4265667,-86.9235024,17z/data=!3m1!4b1!4m5!3m4!1s0x8812e2b5c166c8cb:0xc6b89b5c96b567c4!8m2!3d40.4265626!4d-86.9213137", getString(R.string.otgwindsor_time), "windsorotg", true, true, getString(R.string.otgwindsor_menu));
         Restaurant otgearhart = new Restaurant("Earhart On The Go", "On-the-GO! provides a variety of meal boxes, chef inspired meals, freshly prepared items, sushi and snacks. On-the-GO! offers convenience for students who don't have time to stop and sit down for a meal. The service is quick, and the choices are many.", "https://www.google.com/maps/place/Windsor+Dining+Court/@40.4265667,-86.9235024,17z/data=!3m1!4b1!4m5!3m4!1s0x8812e2b5c166c8cb:0xc6b89b5c96b567c4!8m2!3d40.4265626!4d-86.9213137", getString(R.string.otgearhart_time), "earhartotg", true, true, getString(R.string.otgearhart_menu));
-
-
+d.add(panera);
+d.add(qdoba);
+d.add(chickFilA);
+d.add(jerseyMikes);
+d.add(harrisonGrill);
+d.add(cosi);
+d.add(freshens);
+d.add(sushiboss);
+d.add(earhart);
+d.add(hillenbrand);
+d.add(windsor);
+d.add(wiley);
+d.add(ford);
+d.add(otgford);
+d.add(otglawson);
+d.add(otgknoy);
+d.add(otglily);
+d.add(otgwindsor);
+d.add(otgearhart);
+*/
 /*
         Restaurant panera = new Restaurant("Panera Bread", "The company operates as Saint Louis Bread Company in the Greater St. Louis area, where it has over 100 locations. Offerings include bakery items, pasta, salads, sandwiches, soups, and specialty drinks.", "https://www.google.com/maps/place/Panera+Bread/@40.4228822,-86.9263825,15z/data=!4m8!1m2!2m1!1spanera!3m4!1s0x8812e37e1fd73ac5:0xc9d3acfdc4c66eb0!8m2!3d40.425488!4d-86.92268", getString(R.string.panera_time), "panera", true, false);
         Restaurant qdoba = new Restaurant("Qdoba", "Qdoba Mexican Eats is a chain of fast casual restaurants in the United States and Canada serving Mexican-style cuisine", "https://www.google.com/maps/place/QDOBA+Mexican+Eats/@40.4228502,-86.9263825,15z/data=!4m8!1m2!2m1!1sqdoba!3m4!1s0x8812e3cb41790565:0x16b270e6149d3109!8m2!3d40.4256215!4d-86.9224247", getString(R.string.qdoba_time), "qdoba", true, false);
