@@ -26,7 +26,7 @@ public class DashboardFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        webView = root.findViewById(R.id.webViewID);
+        webView = root.findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://eacct-purdue-sp.transactcampus.com/purdueeaccounts/AccountSummary.aspx?menu=0");
 
