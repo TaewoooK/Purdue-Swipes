@@ -50,19 +50,19 @@ public class HoursAdapter  extends RecyclerView.Adapter<HoursAdapter.MyHolder>{
             holder.breakfast.setText(R.string.nomealswipes);
             //holder.breakfastLayout.setVisibility();
         } else {
-            holder.breakfast.setText(data.getBreakfastHours());
+            holder.breakfast.setText(Utility.toTime(data.getBreakfastHours()));
         }
         if (data.getLunchHours().equals("0-0")){
             holder.lunch.setText(R.string.nomealswipes);
            // holder.lunchLayout.setVisibility();
         } else {
-            holder.lunch.setText(data.getLunchHours());
+            holder.lunch.setText(Utility.toTime(data.getLunchHours()));
         }
         if (data.getDinnerHours().equals("0-0")){
             holder.dinner.setText(R.string.nomealswipes);
            // holder.dinnerLayout.setVisibility();
         } else {
-            holder.dinner.setText(data.getDinnerHours());
+            holder.dinner.setText(Utility.toTime(data.getDinnerHours()));
         }
       /*  holder.breakfast.setText(data.getBreakfastHours());
         holder.lunch.setText(data.getLunchHours());

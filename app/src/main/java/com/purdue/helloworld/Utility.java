@@ -187,4 +187,33 @@ public class Utility {
         }
         return draw;
     }
+
+    public static String toTime(String time) {
+        String start = time.substring(0,time.indexOf('-'));
+        String end = time.substring(time.indexOf('-')+1);
+        String ret = "";
+        Double s = Double.parseDouble(start);
+        if(s>=13) {
+            s -= 12;
+        }
+        start = "" + s;
+        Double e = Double.parseDouble(end);
+        if(e>=13) {
+            e -= 12;
+        }
+        end = "" + e;
+        //System.out.print(start);
+        if(start.contains(".5")) {
+            ret += start.substring(0,start.indexOf('.')) + ":30";
+        } else {
+            ret += start.substring(0,start.indexOf('.')) + ":00";
+        }
+        ret += "-";
+        if(end.contains(".5")) {
+            ret += end.substring(0,end.indexOf('.')) + ":30";
+        } else {
+            ret += end.substring(0,end.indexOf('.')) + ":00";
+        }
+        return ret;
+    }
 }
