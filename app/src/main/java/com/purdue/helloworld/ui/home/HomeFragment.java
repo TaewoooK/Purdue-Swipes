@@ -174,6 +174,7 @@ d.add(otgearhart);*/
             @Override
             public void onClick(View v) {
                 if (mealSwipeButton.isChecked()) {
+                    restaurantsMS.clear();
                     for (int i = 0; i < restaurants.size(); i++) {
                         for (int j = 0; j < Utility.parseString(restaurants.get(i).getTime()).size(); j++) {
                             if (dateTime.toLowerCase().equals(Utility.parseString(restaurants.get(i).getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {

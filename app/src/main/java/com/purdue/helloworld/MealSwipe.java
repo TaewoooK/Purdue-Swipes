@@ -13,7 +13,7 @@ public class MealSwipe {
         String dateTime = format.format(cal.getTime());
         double todayHour = Integer.parseInt(dateTime.substring(0, dateTime.indexOf(':')));
         double todayMin = Integer.parseInt(dateTime.substring(dateTime.indexOf(':') + 1, dateTime.indexOf(' ')));
-        String amPm = dateTime.substring(dateTime.indexOf(' '));
+        String amPm = dateTime.substring(dateTime.indexOf(' ') + 1);
 
         if (amPm.equals("PM")) {
             todayHour += 12;
@@ -21,7 +21,7 @@ public class MealSwipe {
 
         boolean found = false;
 
-        todayHour += (todayMin/60);
+        todayHour += (todayMin/60.0);
 
         if (!breakfastTime.equals("0-0")) {
             double startTime = Double.parseDouble(breakfastTime.substring(0, breakfastTime.indexOf('-')));
@@ -29,18 +29,16 @@ public class MealSwipe {
             if (todayHour >= startTime && todayHour < endTime)
                 found = true;
 
-        }
-        if (!lunchTime.equals("0-0")) {
+        } else if (!lunchTime.equals("0-0")) {
             double startTime = Double.parseDouble(lunchTime.substring(0, lunchTime.indexOf('-')));
             double endTime = Double.parseDouble(lunchTime.substring(lunchTime.indexOf('-') + 1));
             if (todayHour >= startTime && todayHour < endTime)
                 found = true;
 
-        }
-        if (!dinnerTime.equals("0-0")) {
+        } else if (!dinnerTime.equals("0-0")) {
             double startTime = Double.parseDouble(dinnerTime.substring(0, dinnerTime.indexOf('-')));
             double endTime = Double.parseDouble(dinnerTime.substring(dinnerTime.indexOf('-') + 1));
-            if( todayHour >= startTime && todayHour < endTime)
+            if (todayHour >= startTime && todayHour < endTime)
                 found = true;
         }
 
