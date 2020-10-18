@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ import com.purdue.helloworld.R;
 
 public class MenuFragment extends Fragment {
 
-
+ProgressBar progressBar;
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -28,6 +29,7 @@ public class MenuFragment extends Fragment {
         t.setText(menu);
         System.out.println("menu" + menu);
         t.setVisibility(View.VISIBLE);
+
         return root;
     }
 }

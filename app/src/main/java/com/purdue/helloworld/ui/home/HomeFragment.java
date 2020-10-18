@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -44,6 +45,7 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     String retrievedValue;
+    ProgressBar progressBar;
 ArrayList<Restaurant> restaurants = new ArrayList<>();
 ArrayList<Restaurant> restaurantsMS = new ArrayList<>();
 
@@ -56,6 +58,7 @@ ArrayList<Restaurant> restaurantsMS = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("EEE");
         final String dateTime = format.format(cal.getTime());
+        progressBar = root.findViewById(R.id.progressBar2);
         //name,description,location,time,drawablepath,takeMealSwipes,OnlyMealSwipes
 /*
         Restaurant aadr = new Restaurant("All American", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true, getString(R.string.aadr_menu));
@@ -142,7 +145,10 @@ d.add(otgearhart);*/
                   }
 
               }
+
               restaurantAdapter.notifyDataSetChanged();
+              progressBar.setVisibility(View.INVISIBLE);
+
           }
 
       });

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -29,6 +30,7 @@ import com.purdue.helloworld.Utility;
  */
 public class PlaceholderFragment extends Fragment {
 RecyclerView recyclerView;
+ProgressBar progressBar;
     private static final String ARG_SECTION_NUMBER = "section_number";
     @Override
     public View onCreateView(
@@ -39,7 +41,7 @@ RecyclerView recyclerView;
         recyclerView = root.findViewById(R.id.rvHours);
        // Bundle bundle = this.getArguments();
       //  String time = null;
-
+        progressBar = root.findViewById(R.id.progressBar);
         //time = getArguments().getString("time", null);
 
         SharedPreferences mySharedPreferences = getContext().getSharedPreferences("time", Context.MODE_PRIVATE);
@@ -56,6 +58,8 @@ RecyclerView recyclerView;
         recyclerView.setLayoutManager(layoutmanager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(hoursAdapter);
+
+        progressBar.setVisibility(View.INVISIBLE);
 
         return root;
     }
