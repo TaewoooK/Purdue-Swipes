@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/swipe_luancher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.notifications.uploadData"></activity>
         <activity
             android:name=".RestaurantInfo"
             android:label="@string/title_activity_restaurant_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.

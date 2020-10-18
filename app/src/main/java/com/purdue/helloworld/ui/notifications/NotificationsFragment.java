@@ -1,5 +1,6 @@
 package com.purdue.helloworld.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,7 +27,18 @@ public class NotificationsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        final EditText editText = root.findViewById(R.id.passwordText);
+        Button button = root.findViewById(R.id.login);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (editText.getText().toString().trim().equals("123456")) {
+                    Intent intent = new Intent(getContext(),uploadData.class);
+                    startActivity(intent);
+                }
+            }
+        });
 /*
         webView = root.findViewById(R.id.webViewID);
         webView.setWebViewClient(new WebViewClient());
