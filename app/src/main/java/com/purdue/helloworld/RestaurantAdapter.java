@@ -71,7 +71,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
        // holder.picture.getResources().getDrawable(data.getDrawableID());
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
-        String day = this.getDayStringOld(date, Locale.ENGLISH);
+        final String day = this.getDayStringOld(date, Locale.ENGLISH);
         int dayInt = 0;
         for (int i = 0; i < utility.parseString(data.getTime()).size(); i++){
             if (day.toUpperCase().equals(utility.parseString(data.getTime()).get(i).getWeekDay())){
@@ -99,11 +99,11 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            /*    SharedPreferences mySharedPreferences = context.getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
+                SharedPreferences mySharedPreferences = context.getSharedPreferences("time", Context.MODE_PRIVATE);
 
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
-                editor.putString("WeekRef", weekReference).commit();
-                */
+                editor.putString("time", data.getTime()).apply();
+
 
                // Bundle bundle = new Bundle();
                // bundle.putString("time", data.getTime());

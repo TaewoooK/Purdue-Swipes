@@ -77,7 +77,6 @@ public class HoursAdapter  extends RecyclerView.Adapter<HoursAdapter.MyHolder>{
     class MyHolder extends RecyclerView.ViewHolder{
 
         TextView weekday,breakfast,lunch,dinner;
-        LinearLayout breakfastLayout,lunchLayout,dinnerLayout;
 
         public MyHolder(View itemView) {
             super(itemView);
@@ -85,9 +84,9 @@ public class HoursAdapter  extends RecyclerView.Adapter<HoursAdapter.MyHolder>{
             breakfast = (TextView) itemView.findViewById(R.id.breakfast);
             lunch = (TextView) itemView.findViewById(R.id.lunch);
             dinner = (TextView) itemView.findViewById(R.id.dinner);
-            breakfastLayout = (LinearLayout) itemView.findViewById(R.id.breakfastLayout);
-            lunchLayout = (LinearLayout) itemView.findViewById(R.id.lunchLayout);
-            dinnerLayout = (LinearLayout) itemView.findViewById(R.id.dinnerLayout);
+            breakfast = (TextView) itemView.findViewById(R.id.breakfast);
+            lunch = (TextView) itemView.findViewById(R.id.lunch);
+            dinner = (TextView) itemView.findViewById(R.id.dinner);
 
         }
     }
