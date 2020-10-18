@@ -166,7 +166,7 @@ d.add(otgearhart);*/
              //                                                                                     }
              //                                                                                 }
               //                                                                            }
-              //                                                                        }
+              //     test                                                                   }
         //);
         final RestaurantAdapter restaurantAdapterMS = new RestaurantAdapter(restaurantsMS);
 
@@ -174,6 +174,7 @@ d.add(otgearhart);*/
             @Override
             public void onClick(View v) {
                 if (mealSwipeButton.isChecked()) {
+                    restaurantsMS.clear();
                     for (int i = 0; i < restaurants.size(); i++) {
                         for (int j = 0; j < Utility.parseString(restaurants.get(i).getTime()).size(); j++) {
                             if (dateTime.toLowerCase().equals(Utility.parseString(restaurants.get(i).getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {
@@ -192,7 +193,6 @@ d.add(otgearhart);*/
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(restaurantAdapterMS);
                 } else {
-
                     FirebaseFirestore.getInstance().collection("Restaurants").addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
