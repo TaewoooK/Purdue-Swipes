@@ -19,6 +19,10 @@ public class MealSwipe {
             todayHour += 12;
         }
 
+        if(amPm.equals("AM") && todayHour == 12) {
+            todayHour = 0;
+        }
+
         boolean found = false;
 
         todayHour += (todayMin/60.0);
