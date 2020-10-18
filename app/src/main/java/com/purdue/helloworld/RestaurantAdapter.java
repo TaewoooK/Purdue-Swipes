@@ -12,19 +12,36 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
 
+import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.MyHolder>{
 
     List<Restaurant> places;
+    Utility utility;
+    MealSwipe mealSwipe;
+    DayOfWeek dayOfWeek;
+    Date date;
 
     public RestaurantAdapter(List<Restaurant> places) {
         this.places= places;
+        utility = new Utility();
+        mealSwipe = new MealSwipe();
+        //dayOfWeek = new DayOfWeek();
+        date = new Date();
+
     }
     @Override
     public RestaurantAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,18 +50,37 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         RestaurantAdapter.MyHolder myHolder = new RestaurantAdapter.MyHolder(view);
         return myHolder;
     }
-
+    public static String getDayStringOld(Date date, Locale locale) {
+        DateFormat formatter = new SimpleDateFormat("EEEE", locale);
+        return formatter.format(date);
+    }
 
     public void onBindViewHolder(RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
       
-holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()));
+    holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()));
 
        // holder.picture.getResources().getDrawable(data.getDrawableID());
 
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
+        String day = this.getDayStringOld(date, Locale.ENGLISH);
+        int dayInt = 0;
+        for (int i = 0; i < utility.parseString(data.getTime()).size(); i++){
+            if (day.toUpperCase().equals(utility.parseString(data.getTime()).get(i).getWeekDay())){
+                dayInt = i;
+            }
+        }
+        String breakfast = utility.parseString(data.getTime()).get(dayInt).getBreakfastHours();
+        String lunch = utility.parseString(data.getTime()).get(dayInt).getLunchHours();
+        String dinner = utility.parseString(data.getTime()).get(dayInt).getDinnerHours();
+
+        if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
+            holder.takesMealSwipes.setText("Open for Meal Swipes");
+        } else {
+            holder.takesMealSwipes.setText("Closed for Meal Swipes");
+        }
         //System.out.println(data.getDate_class2());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +97,7 @@ holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()))
 
     class MyHolder extends RecyclerView.ViewHolder{
         ImageView picture;
-        TextView name,description,nextTimeOpen;
+        TextView name,description,nextTimeOpen, takesMealSwipes;
 
         public MyHolder(View itemView) {
             super(itemView);
@@ -69,7 +105,7 @@ holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()))
             name = (TextView) itemView.findViewById(R.id.name);
             description = (TextView) itemView.findViewById(R.id.description);
             nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
-
+            takesMealSwipes = (TextView) itemView.findViewById(R.id.takesMealSwipes);
 
         }
     }
