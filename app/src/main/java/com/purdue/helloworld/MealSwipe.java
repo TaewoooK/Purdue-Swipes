@@ -12,7 +12,7 @@ public class MealSwipe {
         SimpleDateFormat format = new SimpleDateFormat("hh:mm a");
         String dateTime = format.format(cal.getTime());
         int todayHour = Integer.parseInt(dateTime.substring(0, dateTime.indexOf(':')));
-        int todayMin = Integer.parseInt(dateTime.substring(dateTime.indexOf(':') + 1), dateTime.indexOf(' '));
+        int todayMin = Integer.parseInt(dateTime.substring(dateTime.indexOf(':') + 1, dateTime.indexOf(' ')));
         String amPm = dateTime.substring(dateTime.indexOf(' '));
 
         if (amPm.equals("PM")) {

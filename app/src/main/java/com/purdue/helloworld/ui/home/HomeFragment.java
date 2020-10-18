@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,13 +26,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.FirestoreRegistrar;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.purdue.helloworld.MealSwipe;
 import com.purdue.helloworld.MealSwipeTime;
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
 import com.purdue.helloworld.RestaurantAdapter;
+import com.purdue.helloworld.Utility;
 
 import java.lang.ref.Reference;
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,11 +45,17 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     String retrievedValue;
 ArrayList<Restaurant> restaurants = new ArrayList<>();
+ArrayList<Restaurant> restaurantsMS = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
          recyclerView = root.findViewById(R.id.rvHome);
+
+        final ToggleButton mealSwipeButton = root.findViewById(R.id.mealSwipeToggle);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("EEE");
+        final String dateTime = format.format(cal.getTime());
         //name,description,location,time,drawablepath,takeMealSwipes,OnlyMealSwipes
         /*
         Restaurant aadr = new Restaurant("All American Dining Room", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true);
@@ -79,7 +92,7 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
         Restaurant otglily = new Restaurant("Lily On The Go", "On-the-GO! provides a variety of meal boxes, chef inspired meals, freshly prepared items, sushi and snacks. On-the-GO! offers convenience for students who don't have time to stop and sit down for a meal. The service is quick, and the choices are many.", "https://www.google.com/maps/place/Lilly+Hall+of+Life+Sciences/@40.4278441,-86.9286501,14z/data=!4m8!1m2!2m1!1slilly!3m4!1s0x8812e2b6d74e6bf7:0x7e43647c2e6d6cc!8m2!3d40.423476!4d-86.9180072", getString(R.string.otglily_time), "otglily", true, true);
         Restaurant otgwindsor = new Restaurant("Windsor On The Go", "On-the-GO! provides a variety of meal boxes, chef inspired meals, freshly prepared items, sushi and snacks. On-the-GO! offers convenience for students who don't have time to stop and sit down for a meal. The service is quick, and the choices are many.", "https://www.google.com/maps/place/Windsor+Dining+Court/@40.4265667,-86.9235024,17z/data=!3m1!4b1!4m5!3m4!1s0x8812e2b5c166c8cb:0xc6b89b5c96b567c4!8m2!3d40.4265626!4d-86.9213137", getString(R.string.otgwindsor_time), "otgwindsor", true, true);
 */
-        final RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
+       final RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
       FirebaseFirestore.getInstance().collection("Restaurants").addSnapshotListener(new EventListener<QuerySnapshot>() {
           @Override
           public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
@@ -117,6 +130,57 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
               //                                                                            }
               //                                                                        }
         //);
+        final RestaurantAdapter restaurantAdapterMS = new RestaurantAdapter(restaurantsMS);
+
+        mealSwipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mealSwipeButton.isChecked()) {
+                    for (int i = 0; i < restaurants.size(); i++) {
+                        for (int j = 0; j < Utility.parseString(restaurants.get(i).getTime()).size(); j++) {
+                            if (dateTime.toLowerCase().equals(Utility.parseString(restaurants.get(i).getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {
+                                String breakfastTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getBreakfastHours();
+                                String lunchTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getLunchHours();
+                                String dinnerTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getDinnerHours();
+
+                                if (MealSwipe.isMealSwipe(breakfastTime, lunchTime, dinnerTime))
+                                    restaurantsMS.add(restaurants.get(i));
+                            }
+                        }
+                    }
+                    restaurantAdapterMS.notifyDataSetChanged();
+                    RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(getContext());
+                    recyclerView.setLayoutManager(layoutmanager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(restaurantAdapterMS);
+                } else {
+
+                    FirebaseFirestore.getInstance().collection("Restaurants").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
+                            restaurants.clear();
+                            for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                if (documentSnapshot != null) {
+                                    Restaurant restaurant = documentSnapshot.toObject(Restaurant.class);
+                                    restaurants.add(restaurant);
+                                }
+
+                            }
+                            restaurantAdapter.notifyDataSetChanged();
+                        }
+
+                    });
+                    RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(getContext());
+                    recyclerView.setLayoutManager(layoutmanager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(restaurantAdapter);
+                }
+
+            }
+
+        });
+
+
         return root;
     }
 
