@@ -33,7 +33,6 @@ public class DashboardFragment extends Fragment {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-
         return root;
     }
 }

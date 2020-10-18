@@ -56,7 +56,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         return formatter.format(date);
     }
 
-    public void onBindViewHolder(RestaurantAdapter.MyHolder holder, final int position) {
+    public void onBindViewHolder(final RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
       
@@ -84,10 +84,21 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
             holder.takesOrNo.setBackgroundColor(R.color.red);
         }
         //System.out.println(data.getDate_class2());
+        final Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            Intent intent = new Intent(holder.itemView.getContext(),RestaurantInfo.class);
+            intent.putExtra("menu",data.getMenu());
+            intent.putExtra("time",data.getTime());
+            context.startActivity(intent);
 
+            }
+        });
+        holder.map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utility.openMaps(data.getLocation(),holder.itemView.getContext());
             }
         });
     }
@@ -102,14 +113,18 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         TextView name,description,nextTimeOpen, takesMealSwipes;
         Button takesOrNo;
 
+        Button map;
         public MyHolder(View itemView) {
             super(itemView);
             picture = (ImageView) itemView.findViewById(R.id.picture);
             name = (TextView) itemView.findViewById(R.id.name);
             description = (TextView) itemView.findViewById(R.id.description);
             nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
+
             takesMealSwipes = (TextView) itemView.findViewById(R.id.takesMealSwipes);
             takesOrNo =  itemView.findViewById(R.id.takesMealSwipes);
+
+            map = itemView.findViewById(R.id.mapNavigate);
 
         }
     }
