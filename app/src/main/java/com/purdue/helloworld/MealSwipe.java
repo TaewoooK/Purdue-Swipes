@@ -19,23 +19,31 @@ public class MealSwipe {
             todayHour += 12;
         }
 
+        boolean found = false;
+
         todayHour += (todayMin/60);
 
         if (!breakfastTime.equals("0-0")) {
             double startTime = Double.parseDouble(breakfastTime.substring(0, breakfastTime.indexOf('-')));
             double endTime = Double.parseDouble(breakfastTime.substring(breakfastTime.indexOf('-') + 1));
-            return todayHour >= startTime && todayHour < endTime;
-        } else if (!lunchTime.equals("0-0")) {
+            if (todayHour >= startTime && todayHour < endTime)
+                found = true;
+
+        }
+        if (!lunchTime.equals("0-0")) {
             double startTime = Double.parseDouble(lunchTime.substring(0, lunchTime.indexOf('-')));
             double endTime = Double.parseDouble(lunchTime.substring(lunchTime.indexOf('-') + 1));
-            return todayHour >= startTime && todayHour < endTime;
+            if (todayHour >= startTime && todayHour < endTime)
+                found = true;
+
         }
-        else if (!dinnerTime.equals("0-0")) {
+        if (!dinnerTime.equals("0-0")) {
             double startTime = Double.parseDouble(dinnerTime.substring(0, dinnerTime.indexOf('-')));
             double endTime = Double.parseDouble(dinnerTime.substring(dinnerTime.indexOf('-') + 1));
-            return todayHour >= startTime && todayHour < endTime;
+            if( todayHour >= startTime && todayHour < endTime)
+                found = true;
         }
 
-        return false;
+        return found;
     }
 }
