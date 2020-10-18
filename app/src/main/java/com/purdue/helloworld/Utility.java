@@ -146,9 +146,44 @@ public class Utility {
                 break;
             case "caryknightspot": draw=R.drawable.caryknightspot;
                 break;
-
-
-
+            case "chickfila": draw=R.drawable.chickfila;
+                break;
+            case "cosi": draw=R.drawable.cosi;
+                break;
+            case "earhart": draw=R.drawable.earhart;
+                break;
+            case "earhartotg": draw=R.drawable.otg;
+                break;
+            case "ford": draw=R.drawable.ford;
+                break;
+            case "fordotg": draw=R.drawable.otg;
+                break;
+            case "freshens": draw=R.drawable.freshens;
+                break;
+            case "harrisongrill": draw=R.drawable.harrisongrill;
+                break;
+            case "hillenbrand": draw=R.drawable.hillenbrand;
+                break;
+            case "jerseymikes": draw=R.drawable.jerseymikes;
+                break;
+            case "knoyotg": draw=R.drawable.otg;
+                break;
+            case "lawsonotg": draw=R.drawable.otg;
+                break;
+            case "lilyotg": draw=R.drawable.otg;
+                break;
+            case "panera": draw=R.drawable.panera;
+                break;
+            case "qdoba": draw=R.drawable.qdoba;
+                break;
+            case "sushiboss": draw=R.drawable.sushiboss;
+                break;
+            case "wiley": draw=R.drawable.wiley;
+                break;
+            case "windsor": draw=R.drawable.windsor;
+                break;
+            case "windsorotg": draw=R.drawable.windsorotg;
+                break;
         }
         return draw;
     }
