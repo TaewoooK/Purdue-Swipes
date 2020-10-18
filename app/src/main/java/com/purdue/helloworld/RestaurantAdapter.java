@@ -35,7 +35,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     }
 
 
-    public void onBindViewHolder(RestaurantAdapter.MyHolder holder, final int position) {
+    public void onBindViewHolder(final RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
       
@@ -49,7 +49,13 @@ holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()))
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+           // Intent intent = new Intent(holder.itemView.getContext(),);
+            }
+        });
+        holder.map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utility.openMaps(data.getLocation(),holder.itemView.getContext());
             }
         });
     }
@@ -62,14 +68,14 @@ holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()))
     class MyHolder extends RecyclerView.ViewHolder{
         ImageView picture;
         TextView name,description,nextTimeOpen;
-
+        Button map;
         public MyHolder(View itemView) {
             super(itemView);
             picture = (ImageView) itemView.findViewById(R.id.picture);
             name = (TextView) itemView.findViewById(R.id.name);
             description = (TextView) itemView.findViewById(R.id.description);
             nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
-
+            map = itemView.findViewById(R.id.mapNavigate);
 
         }
     }
