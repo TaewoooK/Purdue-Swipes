@@ -44,17 +44,19 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
         View root = inflater.inflate(R.layout.fragment_home, container, false);
          recyclerView = root.findViewById(R.id.rvHome);
         //name,description,location,time,drawablepath,takeMealSwipes,OnlyMealSwipes
-      /*  Restaurant aadr = new Restaurant("All American Dining Room", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true);
+        /*
+        Restaurant aadr = new Restaurant("All American Dining Room", "The All American Dining Room - NEW THIS YEAR - FEATURING 1bowl, is another grab-and-go meal swipe option located in Cary Quadrangle offering a rotating assortment of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.aadr_time), "allamerican",true, true);
         Restaurant peteza = new Restaurant("Pete's Za", "Pete's Za at Meredith is a grab and go meal swipe option that serves a veriety of hot and ready pizza", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.peteza_time), "petesza", true,true);
         Restaurant onebowl = new Restaurant("1Bowl", "1bowl @ Meredith is a grab-and-go swipe meal plan option, available only for meal plan holders, located in 1North of the Gathering Place at Meredith Hall, featuring a rotating menu of specialty entrée bowls. Choose a hot or cold entreé bowl made to order with a fountain beverage.", "https://www.google.com/maps/place/Purdue+University/@40.4276951,-86.9216452,17z/data=!4m5!3m4!1s0x8812fd37423e0507:0x8eccb2cf8b1a7c8e!8m2!3d40.4237054!4d-86.9211946", getString(R.string.onebowl_time),"onebowl", true, true);
         Restaurant caryKnightSpot = new Restaurant("Cary Knight Spot", "Open late to satisfy all your pub grub cravings- stop by for burgers, fries, quesadillas, tenders, and more. Located in the basement of Cary Quad South.","https://www.google.com/maps/place/Cary+Knight+Spot+Grill/@40.4317733,-86.9193086,17z/data=!3m1!4b1!4m5!3m4!1s0x8812fd4ca6441cb5:0x3be521b18709d11!8m2!3d40.4317692!4d-86.9171199",getString(R.string.caryknightspot_time),"caryknightspot",true,false);
+
         CollectionReference d =FirebaseFirestore.getInstance().collection("Restaurants");
         d.add(aadr);
         d.add(peteza);
         d.add(onebowl);
         d.add(caryKnightSpot);
-        */
 
+*/
 
 
       /*  Restaurant amd = new Restaurant();
@@ -95,7 +97,6 @@ ArrayList<Restaurant> restaurants = new ArrayList<>();
         recyclerView.setLayoutManager(layoutmanager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(restaurantAdapter);
-
 
        // final TextView textView = root.findViewById(R.id.text_home);
       //  String test = "Monday-Breakfast-8-10-Lunch-11-2-Dinner-6-8(5),Saturday-Breakfast-8-10-Lunch-11-2-Dinner-0-0";
