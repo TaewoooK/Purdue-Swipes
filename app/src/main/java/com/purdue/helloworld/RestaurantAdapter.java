@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
+import com.purdue.helloworld.ui.main.PlaceholderFragment;
 
 import java.time.format.TextStyle;
 import java.util.Date;
@@ -88,10 +91,20 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(holder.itemView.getContext(),RestaurantInfo.class);
-            intent.putExtra("menu",data.getMenu());
-            intent.putExtra("time",data.getTime());
-            context.startActivity(intent);
+            /*    SharedPreferences mySharedPreferences = context.getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                editor.putString("WeekRef", weekReference).commit();
+                */
+
+               // Bundle bundle = new Bundle();
+               // bundle.putString("time", data.getTime());
+               // bundle.putString("menu", data.getMenu());
+                PlaceholderFragment fragment = new PlaceholderFragment();
+              //  fragment.setArguments(bundle);
+                Intent intent = new Intent(context,RestaurantInfo.class);
+                context.startActivity(intent);
+
 
             }
         });
