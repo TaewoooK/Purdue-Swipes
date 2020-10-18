@@ -13,13 +13,6 @@ public class Restaurant  {
     // the long String of all the times that the place is open
     String time;
 
-    public String getMenu() {
-        return menu;
-    }
-    public void setMenu(String menu) {
-        this.menu = menu;
-    }
-
     String menu;
     //returns the next time when the establishment is open
     // int[] nextTime;
@@ -30,7 +23,7 @@ public class Restaurant  {
     //if the times of the location are only meal swipe times
     boolean takesOnlyMS;
     String titleImageID;
-    String menu;
+    // String menu;
 
     public Restaurant() {
     }
