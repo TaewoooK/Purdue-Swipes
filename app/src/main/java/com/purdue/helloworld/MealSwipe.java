@@ -26,7 +26,7 @@ public class MealSwipe {
         boolean found = false;
 
         todayHour += (todayMin/60.0);
-
+        //todayHour = 12.5;
         if (!breakfastTime.equals("0-0")) {
             double startTime = Double.parseDouble(breakfastTime.substring(0, breakfastTime.indexOf('-')));
             double endTime = Double.parseDouble(breakfastTime.substring(breakfastTime.indexOf('-') + 1));
