@@ -192,7 +192,6 @@ d.add(otgearhart);*/
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(restaurantAdapterMS);
                 } else {
-
                     FirebaseFirestore.getInstance().collection("Restaurants").addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
