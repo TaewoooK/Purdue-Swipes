@@ -15,7 +15,7 @@ public class MealSwipe {
         double todayMin = Integer.parseInt(dateTime.substring(dateTime.indexOf(':') + 1, dateTime.indexOf(' ')));
         String amPm = dateTime.substring(dateTime.indexOf(' ') + 1);
 
-        if (amPm.equals("PM")) {
+        if (amPm.equals("PM") && todayHour != 12) {
             todayHour += 12;
         }
 

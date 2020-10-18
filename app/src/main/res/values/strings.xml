@@ -61,7 +61,7 @@
     <string name="hours">Hours</string>
     <string name="menu">Menu</string>
     <string name="nomealswipes">No\nswipes</string>
-    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_splash_screen">Purdue Swipesn</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
