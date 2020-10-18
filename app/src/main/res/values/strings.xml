@@ -55,4 +55,9 @@
     <string name="harrisongrill_menu">Angus Cheeseburger\nGardenburger\nHomestyle Chicken Sandwich\nBuffalo Crispy Chicken Sandwich\nChicken Wings\nVeggie Quesadilla\nAll meals come with a choice of one of the following sides:\nFries\nFresh Fruit</string>
     <string name="caryknightspot_menu">Angus Cheeseburger\nGardenburger\nHomestyle Chicken Sandwich\nBuffalo Crispy Chicken Sandwich\nChicken Tenders\nChicken Quesadilla\nVeggie Quesadilla\nAll meals come with a choice of one of the following sides:\nFries\nMac and Cheese\nFresh Fruit</string>
     <string name="meal_swipes">Meal Swipes</string>
+    <string name="title_activity_restaurant_info">RestaurantInfo</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="hours">Hours</string>
+    <string name="menu">Menu</string>
 </resources>
