@@ -1,5 +1,6 @@
 package com.purdue.helloworld;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,6 +57,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         return formatter.format(date);
     }
 
+    @SuppressLint("ResourceAsColor")
     public void onBindViewHolder(final RestaurantAdapter.MyHolder holder, final int position) {
 
         final Restaurant data = places.get(position);
@@ -75,10 +77,11 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         String breakfast = utility.parseString(data.getTime()).get(dayInt).getBreakfastHours();
         String lunch = utility.parseString(data.getTime()).get(dayInt).getLunchHours();
         String dinner = utility.parseString(data.getTime()).get(dayInt).getDinnerHours();
+        holder.takesOrNo.setBackgroundColor(R.color.notgreen);
 
         if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
             holder.takesMealSwipes.setText("Open for Meal Swipes");
-            holder.takesOrNo.setBackgroundColor(R.color.green);
+            holder.takesOrNo.setBackgroundColor(R.color.notgreen);
         } else {
             holder.takesMealSwipes.setText("Closed for Meal Swipes");
             holder.takesOrNo.setBackgroundColor(R.color.red);
