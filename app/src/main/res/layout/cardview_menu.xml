@@ -16,21 +16,14 @@
         android:background="@color/white">
 
 
-        <ImageView
-            android:id="@+id/picture"
-            android:layout_width="match_parent"
-            android:layout_height="322dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/basic" />
-
         <Button
             android:id="@+id/takesMealSwipes"
             android:layout_width="match_parent"
-            android:layout_height="21dp"
+            android:layout_height="33dp"
             android:layout_marginBottom="20dp"
             android:background="@color/notgreen"
             android:clickable="false"
-            android:text="Button" />
+            android:text="Menu" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,14 +47,14 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-              //  <TextView
-              />/      android:id="@+id/nextTimeOpen"
-                    android:layout_width="189dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp"
-                    android:layout_weight="1"
-                    android:text="Open Today, 11AM-2PM"
-                    android:textAlignment="textEnd" />
+                //  <TextView
+                />/      android:id="@+id/nextTimeOpen"
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
+                android:text="Open Today, 11AM-2PM"
+                android:textAlignment="textEnd" />
             </LinearLayout>
 
 

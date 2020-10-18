@@ -48,7 +48,7 @@ public class MealSwipe {
 
         return found;
     }
-    public String timeOpenNow(String breakfastTime, String lunchTime, String dinnerTime) {
+   /* public String timeOpenNow(String breakfastTime, String lunchTime, String dinnerTime) {
 
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("hh:mm a");
@@ -90,5 +90,5 @@ public class MealSwipe {
         }
 
         return timeOpen;
-    }
+    }*/
 }

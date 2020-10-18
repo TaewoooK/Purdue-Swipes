@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,10 +46,25 @@ public class HoursAdapter  extends RecyclerView.Adapter<HoursAdapter.MyHolder>{
 
         final MealSwipeTime data = places.get(position);
         holder.weekday.setText(data.getWeekDay());
-        holder.breakfast.setText(data.getBreakfastHours());
+        if (data.getBreakfastHours().equals("0-0")){
+            //holder.breakfastLayout.setVisibility();
+        } else {
+            holder.breakfast.setText(data.getBreakfastHours());
+        }
+        if (data.getLunchHours().equals("0-0")){
+           // holder.lunchLayout.setVisibility();
+        } else {
+            holder.lunch.setText(data.getLunchHours());
+        }
+        if (data.getDinnerHours().equals("0-0")){
+           // holder.dinnerLayout.setVisibility();
+        } else {
+            holder.dinner.setText(data.getDinnerHours());
+        }
+      /*  holder.breakfast.setText(data.getBreakfastHours());
         holder.lunch.setText(data.getLunchHours());
         holder.dinner.setText(data.getDinnerHours());
-
+*/
 
 
     }
@@ -61,14 +77,17 @@ public class HoursAdapter  extends RecyclerView.Adapter<HoursAdapter.MyHolder>{
     class MyHolder extends RecyclerView.ViewHolder{
 
         TextView weekday,breakfast,lunch,dinner;
+        LinearLayout breakfastLayout,lunchLayout,dinnerLayout;
 
         public MyHolder(View itemView) {
             super(itemView);
             weekday = (TextView) itemView.findViewById(R.id.day);
-            breakfast = (TextView) itemView.findViewById(R.id.name);
-            lunch = (TextView) itemView.findViewById(R.id.description);
-            dinner = (TextView) itemView.findViewById(R.id.nextTimeOpen);
-
+            breakfast = (TextView) itemView.findViewById(R.id.breakfast);
+            lunch = (TextView) itemView.findViewById(R.id.lunch);
+            dinner = (TextView) itemView.findViewById(R.id.dinner);
+            breakfastLayout = (LinearLayout) itemView.findViewById(R.id.breakfastLayout);
+            lunchLayout = (LinearLayout) itemView.findViewById(R.id.lunchLayout);
+            dinnerLayout = (LinearLayout) itemView.findViewById(R.id.dinnerLayout);
 
         }
     }
