@@ -22,17 +22,17 @@ public class MealSwipe {
         todayHour += (todayMin/60);
 
         if (!breakfastTime.equals("0-0")) {
-            double startTime = Integer.parseInt(breakfastTime.substring(0, breakfastTime.indexOf('-')));
-            double endTime = Integer.parseInt(breakfastTime.substring(breakfastTime.indexOf('-') + 1));
+            double startTime = Double.parseDouble(breakfastTime.substring(0, breakfastTime.indexOf('-')));
+            double endTime = Double.parseDouble(breakfastTime.substring(breakfastTime.indexOf('-') + 1));
             return todayHour >= startTime && todayHour < endTime;
         } else if (!lunchTime.equals("0-0")) {
-            double startTime = Integer.parseInt(lunchTime.substring(0, lunchTime.indexOf('-')));
-            double endTime = Integer.parseInt(lunchTime.substring(lunchTime.indexOf('-') + 1));
+            double startTime = Double.parseDouble(lunchTime.substring(0, lunchTime.indexOf('-')));
+            double endTime = Double.parseDouble(lunchTime.substring(lunchTime.indexOf('-') + 1));
             return todayHour >= startTime && todayHour < endTime;
         }
         else if (!dinnerTime.equals("0-0")) {
-            double startTime = Integer.parseInt(dinnerTime.substring(0, dinnerTime.indexOf('-')));
-            double endTime = Integer.parseInt(dinnerTime.substring(dinnerTime.indexOf('-') + 1));
+            double startTime = Double.parseDouble(dinnerTime.substring(0, dinnerTime.indexOf('-')));
+            double endTime = Double.parseDouble(dinnerTime.substring(dinnerTime.indexOf('-') + 1));
             return todayHour >= startTime && todayHour < endTime;
         }
 
