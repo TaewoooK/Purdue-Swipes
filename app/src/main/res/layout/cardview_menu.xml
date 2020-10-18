@@ -1,92 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="25dp"
+    android:layout_margin="20dp"
+
+    app:cardCornerRadius="7dp"
     app:cardElevation="10dp">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:layout_height="200dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="vertical">
 
 
-        <Button
-            android:id="@+id/takesMealSwipes"
-            android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/notgreen"
-            android:clickable="false"
-            android:text="Menu" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            >
+            android:layout_marginTop="25dp"
+            android:text="Menu"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Fancy Hotel"
-                    android:textColor="#000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                //  <TextView
-                />/      android:id="@+id/nextTimeOpen"
-                android:layout_width="189dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_weight="1"
-                android:text="Open Today, 11AM-2PM"
-                android:textAlignment="textEnd" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Food"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/day"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
 
 
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scrollbarStyle="outsideOverlay"
-                android:text="This fancy hotel contains very many chairs and the image is the perfect size for our cardView."
-                android:textColor="#000" />
+    </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/mapNavigate"
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_marginRight="250dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginVertical="5dp"
-                    app:srcCompat="@drawable/googlemaps"
-                    android:textAlignment="textStart"
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
 </androidx.cardview.widget.CardView>

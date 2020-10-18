@@ -28,6 +28,7 @@ import com.purdue.helloworld.Restaurant;
 import com.purdue.helloworld.ui.main.PlaceholderFragment;
 
 import java.time.format.TextStyle;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -40,6 +41,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     MealSwipe mealSwipe;
     DayOfWeek dayOfWeek;
     Date date;
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat format = new SimpleDateFormat("EEE");
+    final String dateTime = format.format(cal.getTime());
 
     public RestaurantAdapter(List<Restaurant> places) {
         this.places= places;
@@ -73,27 +77,43 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         holder.description.setText(data.getDescription());
         final String day = this.getDayStringOld(date, Locale.ENGLISH);
         int dayInt = 0;
+
+        holder.takesOrNo.setBackgroundColor(R.color.notgreen);
+
+        for (int j = 0; j < Utility.parseString(data.getTime()).size(); j++) {
+            if ((dateTime.toLowerCase()).equals(Utility.parseString(data.getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {
+                String breakfast = Utility.parseString(data.getTime()).get(j).getBreakfastHours();
+                String lunch = Utility.parseString(data.getTime()).get(j).getLunchHours();
+                String dinner = Utility.parseString(data.getTime()).get(j).getDinnerHours();
+
+
+                if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
+                    holder.takesMealSwipes.setText("Open for Meal Swipes");
+                    holder.takesOrNo.setBackgroundColor(Color.GREEN);
+                    break;
+                    //   holder.nextTimeOpen.setText("Open Today: " + mealSwipe.timeOpenNow(breakfast,lunch,dinner));
+                } else {
+                    holder.takesMealSwipes.setText("Closed for Meal Swipes");
+                    holder.takesOrNo.setBackgroundColor(Color.RED);
+                    //holder.nextTimeOpen.setText("Closed");
+                }
+            } else {
+                holder.takesMealSwipes.setText("Closed for Meal Swipes");
+                holder.takesOrNo.setBackgroundColor(Color.RED);
+            }
+        }
+
+/*
         for (int i = 0; i < utility.parseString(data.getTime()).size(); i++){
             if (day.toUpperCase().equals(utility.parseString(data.getTime()).get(i).getWeekDay())){
                 dayInt = i;
             }
         }
-        String breakfast = utility.parseString(data.getTime()).get(dayInt).getBreakfastHours();
-        String lunch = utility.parseString(data.getTime()).get(dayInt).getLunchHours();
-        String dinner = utility.parseString(data.getTime()).get(dayInt).getDinnerHours();
-        holder.takesOrNo.setBackgroundColor(R.color.notgreen);
+        */
+
+
        // holder.nextTimeOpen.setText();
 
-        if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
-            holder.takesMealSwipes.setText("Open for Meal Swipes");
-            holder.takesOrNo.setBackgroundColor(Color.GREEN);
-         //   holder.nextTimeOpen.setText("Open Today: " + mealSwipe.timeOpenNow(breakfast,lunch,dinner));
-
-        } else {
-            holder.takesMealSwipes.setText("Closed for Meal Swipes");
-            holder.takesOrNo.setBackgroundColor(Color.RED);
-            //holder.nextTimeOpen.setText("Closed");
-        }
         //System.out.println(data.getDate_class2());
         final Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +122,15 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
                 SharedPreferences mySharedPreferences = context.getSharedPreferences("time", Context.MODE_PRIVATE);
 
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
+                      //  System.out.println(data.getMenu());
                 editor.putString("time", data.getTime()).apply();
-                editor.putString("menu", data.getMenu()).apply();
+
+               
+                SharedPreferences mySharedPreferences2 = context.getSharedPreferences("menu", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor2 = mySharedPreferences2.edit();
+                editor2.putString("menu", data.getMenu()).apply();
+
 
                // Bundle bundle = new Bundle();
                // bundle.putString("time", data.getTime());

@@ -177,7 +177,7 @@ d.add(otgearhart);*/
                     restaurantsMS.clear();
                     for (int i = 0; i < restaurants.size(); i++) {
                         for (int j = 0; j < Utility.parseString(restaurants.get(i).getTime()).size(); j++) {
-                            if (dateTime.toLowerCase().equals(Utility.parseString(restaurants.get(i).getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {
+                            if ((dateTime.toLowerCase()).equals(Utility.parseString(restaurants.get(i).getTime()).get(j).getWeekDay().substring(0, 3).toLowerCase())) {
                                 String breakfastTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getBreakfastHours();
                                 String lunchTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getLunchHours();
                                 String dinnerTime = Utility.parseString(restaurants.get(i).getTime()).get(j).getDinnerHours();
@@ -202,7 +202,6 @@ d.add(otgearhart);*/
                                     Restaurant restaurant = documentSnapshot.toObject(Restaurant.class);
                                     restaurants.add(restaurant);
                                 }
-
                             }
                             restaurantAdapter.notifyDataSetChanged();
                         }
