@@ -40,7 +40,7 @@ RecyclerView recyclerView;
        // Bundle bundle = this.getArguments();
         String time = null;
 
-           // time = getArguments().getString("time", null);
+        //time = getArguments().getString("time", null);
             /*
         SharedPreferences mySharedPreferences = getContext().getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
 

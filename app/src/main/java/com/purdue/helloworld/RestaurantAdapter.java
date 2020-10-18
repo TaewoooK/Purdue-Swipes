@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -91,7 +92,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         } else {
             holder.takesMealSwipes.setText("Closed for Meal Swipes");
             holder.takesOrNo.setBackgroundColor(Color.RED);
-            holder.nextTimeOpen .setText("Closed");
+            //holder.nextTimeOpen.setText("Closed");
         }
         //System.out.println(data.getDate_class2());
         final Context context = holder.itemView.getContext();
@@ -133,7 +134,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         TextView name,description,nextTimeOpen, takesMealSwipes;
         Button takesOrNo;
 
-        Button map;
+        ImageButton map;
         public MyHolder(View itemView) {
             super(itemView);
             picture = (ImageView) itemView.findViewById(R.id.picture);
