@@ -38,17 +38,17 @@ RecyclerView recyclerView;
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         recyclerView = root.findViewById(R.id.rvHours);
        // Bundle bundle = this.getArguments();
-        String time = null;
+      //  String time = null;
 
         //time = getArguments().getString("time", null);
-            /*
-        SharedPreferences mySharedPreferences = getContext().getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
+
+        SharedPreferences mySharedPreferences = getContext().getSharedPreferences("time", Context.MODE_PRIVATE);
 
 
 
-        String wr = mySharedPreferences.getString("WeekRef", "");
+        String time = mySharedPreferences.getString("time", "");
 
-             */
+
        // String menu = bundle.getString("menu");
         HoursAdapter hoursAdapter = new HoursAdapter(Utility.parseString(time));
         hoursAdapter.notifyDataSetChanged();
