@@ -23,12 +23,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/basic" />
 
-        <Button
-            android:id="@+id/takesMealSwipes"
-            android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:text="Button" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,6 +77,14 @@
                     android:text="Navigate" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/takesMealSwipes"
+                android:layout_width="match_parent"
+                android:background="@color/green"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:text="Button" />
 
 
         </LinearLayout>

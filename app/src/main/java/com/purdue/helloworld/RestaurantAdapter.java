@@ -3,6 +3,7 @@ package com.purdue.helloworld;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -62,7 +63,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     holder.picture.setImageResource(Utility.getDrawableName(data.getTitleImageID()));
 
        // holder.picture.getResources().getDrawable(data.getDrawableID());
-
         holder.name.setText(data.getName());
         holder.description.setText(data.getDescription());
         String day = this.getDayStringOld(date, Locale.ENGLISH);
@@ -78,8 +78,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
 
         if (mealSwipe.isMealSwipe(breakfast,lunch,dinner)) {
             holder.takesMealSwipes.setText("Open for Meal Swipes");
+            holder.takesOrNo.setBackgroundColor(R.color.green);
         } else {
             holder.takesMealSwipes.setText("Closed for Meal Swipes");
+            holder.takesOrNo.setBackgroundColor(R.color.red);
         }
         //System.out.println(data.getDate_class2());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     class MyHolder extends RecyclerView.ViewHolder{
         ImageView picture;
         TextView name,description,nextTimeOpen, takesMealSwipes;
+        Button takesOrNo;
 
         public MyHolder(View itemView) {
             super(itemView);
@@ -106,6 +109,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
             description = (TextView) itemView.findViewById(R.id.description);
             nextTimeOpen = (TextView) itemView.findViewById(R.id.nextTimeOpen);
             takesMealSwipes = (TextView) itemView.findViewById(R.id.takesMealSwipes);
+            takesOrNo =  itemView.findViewById(R.id.takesMealSwipes);
 
         }
     }
